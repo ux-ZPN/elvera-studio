@@ -1,0 +1,176 @@
+.admin-layout {
+  display: flex;
+  min-height: 100vh;
+  background: var(--bg-secondary);
+}
+
+.admin-sidebar {
+  width: 250px;
+  background: #000;
+  color: #fff;
+  padding: 2rem;
+  flex-shrink: 0;
+}
+
+.admin-sidebar h2 {
+  font-size: 1.25rem;
+  letter-spacing: 0.1em;
+  font-weight: 300;
+  border-bottom: 1px solid #333;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+}
+
+.admin-sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.admin-sidebar nav a {
+  color: #999;
+  text-decoration: none;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.8rem;
+  transition: all 0.2s;
+  border-radius: 4px;
+}
+
+.admin-sidebar nav a:hover,
+.admin-sidebar nav a.active {
+  background: #1a1a1a;
+  color: #fff;
+}
+
+.admin-content {
+  flex: 1;
+  padding: 3rem;
+  background: #fafafa;
+}
+
+.admin-content h1 {
+  font-size: 1.8rem;
+  font-weight: 400;
+  margin-top: 0;
+  margin-bottom: 2rem;
+  letter-spacing: 0.05em;
+  color: #111;
+}
+
+.admin-loader {
+  padding: 2rem;
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Dashboard KPIs */
+.admin-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.kpi-card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 6px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+  border: 1px solid #eaeaea;
+}
+
+.kpi-card h3 {
+  font-size: 0.85rem;
+  color: #666;
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.kpi-val {
+  font-size: 2.2rem;
+  margin: 0;
+  font-weight: 300;
+  color: #111;
+}
+
+/* Tables */
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+}
+
+.admin-table th, .admin-table td {
+  padding: 1.25rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #eaeaea;
+  font-size: 0.9rem;
+}
+
+.admin-table th {
+  background: #f4f4f4;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.8rem;
+  color: #555;
+}
+
+.admin-btn-small {
+  padding: 0.5rem 0.8rem;
+  background: #eaeaea;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.admin-btn-small:hover {
+  background: #ddd;
+}
+
+.admin-upload-btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: #111;
+  color: #fff;
+  font-size: 0.75rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: opacity 0.2s;
+}
+
+.admin-upload-btn:hover {
+  opacity: 0.8;
+}
+
+.admin-status-dropdown {
+  padding: 0.4rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+
+.admin-filter {
+  padding: 0.6rem 1rem;
+  border: 1px solid #ddd;
+  background: #fff;
+  border-radius: 4px;
+}
+
+.admin-track-btn {
+  background: none;
+  border: none;
+  color: #0066cc;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+  margin-top: 5px;
+}

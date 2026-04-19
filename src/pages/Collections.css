@@ -1,0 +1,202 @@
+.collections-grouped-page {
+  padding-top: calc(var(--nav-height) + 2rem);
+  min-height: 80vh;
+  margin-bottom: 8rem;
+  background-color: #ffffff;
+}
+
+.grouped-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 4rem;
+}
+
+.product-section {
+  margin-bottom: 6rem;
+}
+
+.mt-section {
+  margin-top: 5rem;
+}
+
+/* Headings */
+.section-header-block {
+  margin-bottom: 2rem;
+}
+
+.section-main-heading {
+  font-family: var(--font-main);
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+.section-sub-heading {
+  font-family: var(--font-main);
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  display: block;
+  margin-top: 0.5rem;
+}
+
+/* Grids */
+.elvera-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+/* Product Card Design */
+.elvera-product-card {
+  position: relative;
+  background-color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 
+  Top Right to Bottom Left Soft Glow Effect
+  using an animated ::before pseudo-element overlay
+*/
+.elvera-product-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(
+    to bottom left, 
+    rgba(255, 255, 255, 0.8) 0%, 
+    rgba(255, 255, 255, 0.1) 40%, 
+    transparent 100%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.elvera-product-card:hover {
+  transform: translateY(-5px);
+  /* Subtly shift shadow direction to simulate lighting from top right */
+  box-shadow: -8px 12px 30px rgba(0, 0, 0, 0.08); 
+}
+
+.elvera-product-card:hover::before {
+  opacity: 1;
+}
+
+.elvera-image-box {
+  width: 100%;
+  aspect-ratio: 4/5;
+  background-color: #f1f2f3; 
+  position: relative;
+  overflow: hidden;
+  display: block;
+}
+
+.form-specific-bg {
+  background-color: #e5e5e5;
+}
+
+/* Image Swap & Perspective Scaling */
+.image-primary, .image-secondary {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.image-secondary {
+  opacity: 0;
+}
+
+.elvera-product-card:hover .image-primary {
+  opacity: 0;
+}
+
+.elvera-product-card:hover .image-secondary {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.elvera-card-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  position: relative;
+  z-index: 2;
+}
+
+.elvera-card-title {
+  font-family: var(--font-main);
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  margin: 0 0 0.5rem 0;
+  line-height: 1.3;
+}
+
+.elvera-card-price {
+  font-family: var(--font-main);
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+/* Black View Product Button */
+.elvera-btn-view {
+  display: inline-block;
+  background-color: #000000;
+  color: #ffffff;
+  text-align: center;
+  font-family: var(--font-main);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.85rem 1.5rem;
+  border-radius: 6px;
+  margin-top: 1.25rem;
+  text-decoration: none;
+  transition: opacity 0.2s ease, background-color 0.2s ease;
+}
+
+.elvera-btn-view:hover {
+  opacity: 0.85;
+}
+
+.elvera-card-skeleton {
+  aspect-ratio: 4/5;
+  background-color: var(--accent-light);
+  border-radius: 12px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.5; }
+  50% { opacity: 0.8; }
+  100% { opacity: 0.5; }
+}
+
+@media (max-width: 1024px) {
+  .grouped-container { padding: 0 2rem; }
+  .elvera-grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .grouped-container { padding: 0 1rem; }
+  .elvera-grid-4 { grid-template-columns: 1fr; gap: 2rem; }
+  .section-main-heading { font-size: 1.8rem; }
+}

@@ -1,0 +1,79 @@
+.catalog-container {
+  padding-top: var(--nav-height); /* ensure it clears the fixed header if present */
+  min-height: 80vh;
+  padding-bottom: 5rem;
+}
+
+.catalog-header {
+  text-align: center;
+  padding: 4rem 1rem 3rem;
+}
+
+.catalog-title {
+  font-size: 2rem;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.catalog-subtitle {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.05em;
+}
+
+.catalog-content {
+  padding-top: 1rem;
+}
+
+.catalog-grid {
+  display: grid;
+  /* Simple 2-column grid as requested */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem 1rem; /* row gap 2rem, col gap 1rem */
+}
+
+/* Adjust gaps for larger screens, but keep 2 columns */
+@media (min-width: 768px) {
+  .catalog-grid {
+    gap: 4rem 2rem;
+  }
+}
+
+.catalog-error {
+  text-align: center;
+  padding: 4rem 1rem;
+  color: var(--text-secondary);
+}
+
+/* Re-using placeholder styles implicitly from Home if they exist globally, 
+   otherwise defining basic shape here */
+.product-card-placeholder .image-placeholder {
+  width: 100%;
+  aspect-ratio: 3/4;
+  background-color: var(--secondary-color);
+  animation: pulse 1.5s infinite;
+}
+
+.product-card-placeholder .details-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.product-card-placeholder .title-placeholder {
+  width: 60%;
+  height: 12px;
+  background-color: var(--secondary-color);
+  animation: pulse 1.5s infinite;
+}
+
+.product-card-placeholder .price-placeholder {
+  width: 30%;
+  height: 10px;
+  background-color: var(--secondary-color);
+  animation: pulse 1.5s infinite;
+}

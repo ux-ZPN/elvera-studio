@@ -1,0 +1,145 @@
+/* ===== PRODUCT CARD ===== */
+.product-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.product-image-container {
+  position: relative;
+  overflow: hidden;
+  background: var(--accent-light);
+  aspect-ratio: 3 / 4;
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: opacity 0.45s ease, transform 0.55s ease;
+}
+
+.primary-image {
+  position: absolute;
+  top: 0; left: 0;
+  opacity: 1;
+  z-index: 1;
+}
+
+.hover-image {
+  position: absolute;
+  top: 0; left: 0;
+  opacity: 0;
+  z-index: 2;
+}
+
+.product-card:hover .primary-image {
+  opacity: 0;
+}
+
+.product-card:hover .hover-image {
+  opacity: 1;
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.03);
+}
+
+/* NEW Badge */
+.product-new-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 5;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: #fff;
+  color: #111;
+  padding: 3px 8px;
+  border: 1px solid #ddd;
+}
+
+/* Sold out overlay */
+.sold-out-badge {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.55);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 0.65rem;
+  z-index: 10;
+}
+
+.product-card.sold-out .product-image-container {
+  opacity: 0.7;
+}
+
+/* Details */
+.product-details {
+  padding: 0.9rem 0 0;
+}
+
+.product-title {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.3rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.product-price {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+  margin-bottom: 0.55rem;
+}
+
+/* Size pills */
+.product-sizes-preview {
+  display: flex;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.size-pill {
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.size-pill::after {
+  content: '';
+}
+
+.size-pill:not(:last-child)::after {
+  content: ' ·';
+  color: #ccc;
+}
+
+/* Placeholder skeleton */
+.product-image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  color: #bbb;
+  letter-spacing: 0.1em;
+}

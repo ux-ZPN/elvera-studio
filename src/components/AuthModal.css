@@ -1,0 +1,135 @@
+.auth-modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+}
+
+.auth-modal-content {
+  background: var(--bg-primary);
+  width: 90%;
+  max-width: 400px;
+  border-radius: 8px;
+  padding: 2.5rem 2rem;
+  position: relative;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  animation: slideUpFade 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideUpFade {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.auth-close-btn {
+  position: absolute;
+  top: 15px; right: 15px;
+  background: none; border: none;
+  cursor: pointer;
+  color: var(--text-secondary);
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.auth-header h2 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin: 0 0 0.5rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.auth-header p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.auth-input-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.auth-icon {
+  position: absolute;
+  left: 15px;
+  color: #999;
+}
+
+.auth-input-group input {
+  width: 100%;
+  padding: 1rem 1rem 1rem 45px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 0.9rem;
+}
+
+.auth-submit-btn {
+  background: var(--text-primary);
+  color: var(--bg-primary);
+  padding: 1.1rem;
+  border: none;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.auth-submit-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.auth-switch {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-top: 0.5rem;
+}
+
+.auth-switch button {
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0 5px;
+}
+
+.auth-message {
+  padding: 1rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.auth-message.error {
+  background: #fdecea;
+  color: #c62828;
+  border: 1px solid #c62828;
+}
+
+.auth-message.success {
+  background: #edf7ed;
+  color: #2e7d32;
+  border: 1px solid #2e7d32;
+}

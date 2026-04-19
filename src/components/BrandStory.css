@@ -1,0 +1,100 @@
+/* Import beautiful Serif font specifically for this editorial quote */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap');
+
+.brand-story-container {
+  padding: 8rem 2rem;
+  margin: 0 auto;
+}
+
+.brand-story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center;
+}
+
+.brand-story-image-wrapper {
+  width: 100%;
+  aspect-ratio: 4/5;
+  overflow: hidden;
+  background-color: var(--accent-light);
+  border-radius: var(--radius-sm);
+}
+
+.brand-story-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.5s ease;
+}
+
+.brand-story-image-wrapper:hover .brand-story-image {
+  transform: scale(1.03);
+}
+
+.brand-story-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-right: 2rem;
+}
+
+.brand-story-title {
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 3rem;
+}
+
+/* Playfair display for the chic editorial quotes */
+.brand-story-quote {
+  font-family: 'Playfair Display', serif;
+}
+
+.brand-story-quote p {
+  font-size: 1.5rem;
+  line-height: 1.6;
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+}
+
+.brand-story-lead {
+  font-size: 2rem !important;
+  line-height: 1.4 !important;
+  font-style: italic;
+  margin-bottom: 2.5rem !important;
+  color: var(--text-primary);
+}
+
+.brand-story-signature {
+  font-size: 1.1rem !important;
+  font-style: italic;
+  letter-spacing: 0.1em;
+  margin-top: 4rem !important;
+  color: var(--text-secondary) !important;
+}
+
+@media (max-width: 992px) {
+  .brand-story-grid {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+  
+  .brand-story-image-wrapper {
+    aspect-ratio: 16/10;
+  }
+  
+  .brand-story-content {
+    padding-right: 0;
+  }
+  
+  .brand-story-lead {
+    font-size: 1.75rem !important;
+  }
+  
+  .brand-story-quote p {
+    font-size: 1.25rem;
+  }
+}

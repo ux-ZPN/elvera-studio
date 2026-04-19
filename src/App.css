@@ -1,0 +1,15 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: var(--bg-primary);
+}
+
+.main-content {
+  flex: 1;
+}
+
+/* Pages that need top padding for fixed navbar (non-hero pages) */
+.page-with-padding {
+  padding-top: var(--nav-height);
+}
