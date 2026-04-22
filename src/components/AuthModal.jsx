@@ -112,7 +112,15 @@ const AuthModal = ({ isOpen, onClose }) => {
           <form className="auth-form" onSubmit={handleMagicLink}>
             <div className="auth-input-group">
               <Mail size={18} className="auth-icon" />
-              <input type="email" placeholder="Email Address" value={email} onChange={e => setEmail(e.target.value)} required />
+              <input 
+                type="email" 
+                id="auth-magic-email"
+                name="email"
+                placeholder="Email Address" 
+                value={email} 
+                onChange={e => setEmail(e.target.value)} 
+                required 
+              />
             </div>
             <button type="submit" disabled={loading} className="auth-submit-btn">
               {loading ? 'Sending...' : 'Send Magic Link'}
@@ -125,11 +133,28 @@ const AuthModal = ({ isOpen, onClose }) => {
           <form className="auth-form" onSubmit={handlePasswordLogin}>
             <div className="auth-input-group">
               <Mail size={18} className="auth-icon" />
-              <input type="email" placeholder="Email Address" value={email} onChange={e => setEmail(e.target.value)} required />
+              <input 
+                type="email" 
+                id="auth-password-email"
+                name="email"
+                placeholder="Email Address" 
+                value={email} 
+                onChange={e => setEmail(e.target.value)} 
+                required 
+              />
             </div>
             <div className="auth-input-group">
               <Lock size={18} className="auth-icon" />
-              <input type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} required minLength="6" />
+              <input 
+                type="password" 
+                id="auth-password"
+                name="password"
+                placeholder="Password" 
+                value={password} 
+                onChange={e => setPassword(e.target.value)} 
+                required 
+                minLength="6" 
+              />
             </div>
             <button type="submit" disabled={loading} className="auth-submit-btn">
               {loading ? 'Processing...' : (authMode === 'signup' ? 'Sign Up' : 'Log In')}

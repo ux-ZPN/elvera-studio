@@ -51,6 +51,8 @@ const TrackOrder = () => {
         <form onSubmit={handleTrack} className="track-form">
           <input 
             type="email" 
+            id="track-email"
+            name="email"
             placeholder="Email Address" 
             value={email} 
             onChange={e => setEmail(e.target.value)} 
@@ -58,6 +60,8 @@ const TrackOrder = () => {
           />
           <input 
             type="text" 
+            id="track-order-id"
+            name="orderId"
             placeholder="Order ID (e.g. ELV-1234)" 
             value={orderId} 
             onChange={e => setOrderId(e.target.value)} 

@@ -1,5 +1,5 @@
 .account-page {
-  padding-top: calc(var(--nav-height) + 2rem);
+  padding-top: calc(var(--nav-height) + 4rem);
   padding-bottom: 5rem;
   max-width: 1000px;
   margin: 0 auto;
@@ -76,4 +76,44 @@
 
 .view-order-link {
   color: var(--text-primary); text-decoration: underline; font-size: 0.85rem;
+}
+
+.order-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.rate-order-link {
+  color: #388e3c;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.rate-order-link:hover {
+  text-decoration: underline;
+}
+
+.rate-item-btn {
+  background: var(--text-primary);
+  color: var(--bg-primary);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.2s, background 0.3s;
+}
+
+.rate-item-btn:hover {
+  background: #333;
+  transform: translateY(-2px);
 }

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { supabase } from '../services/supabaseClient';
+import { Star } from 'lucide-react';
+import AddReviewModal from '../components/AddReviewModal';
 import './Account.css';
 
 const OrderDetail = () => {
@@ -9,10 +11,16 @@ const OrderDetail = () => {
   const [order, setOrder] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [userSession, setUserSession] = useState(null);
+  const [selectedItem, setSelectedItem] = useState(null);
+  const [isReviewModalOpen, setIsReviewModalOpen] = useState(false);
 
   useEffect(() => {
-    const fetchOrder = async () => {
+    const fetchData = async () => {
       try {
+        const { data: { session } } = await supabase.auth.getSession();
+        setUserSession(session);
+
         const { data: orderData, error: dbError } = await supabase
           .from('orders')
           .select('*')
@@ -30,7 +38,7 @@ const OrderDetail = () => {
         setLoading(false);
       }
     };
-    fetchOrder();
+    fetchData();
   }, [id]);
 
   if (loading) return <div className="account-loader">Loading details...</div>;
@@ -49,13 +57,26 @@ const OrderDetail = () => {
           <h2>Items</h2>
           {/* Note: JSON array mapping based on cartItems format stored securely */}
           {(order.items || []).map((item, i) => (
-            <div key={i} style={{ display: 'flex', gap: '15px', borderBottom: '1px solid #eaeaea', padding: '1rem 0' }}>
-              <img src={item.image} alt={item.title} style={{ width: '60px', height: '60px', objectFit: 'cover' }} />
-              <div>
-                <p style={{ margin: '0 0 5px 0', fontWeight: '500' }}>{item.title}</p>
-                <p style={{ margin: '0', fontSize: '0.85rem', color: '#666' }}>Size: {item.size} • Qty: {item.quantity}</p>
-                <p style={{ margin: '5px 0 0 0' }}>₹{item.price}</p>
+            <div key={i} style={{ display: 'flex', gap: '15px', borderBottom: '1px solid #eaeaea', padding: '1.5rem 0', alignItems: 'center', justifyContent: 'space-between' }}>
+              <div style={{ display: 'flex', gap: '15px' }}>
+                <img src={item.image} alt={item.title} style={{ width: '80px', height: '80px', objectFit: 'cover', borderRadius: '4px' }} />
+                <div>
+                  <p style={{ margin: '0 0 5px 0', fontWeight: '600' }}>{item.title}</p>
+                  <p style={{ margin: '0', fontSize: '0.85rem', color: '#666' }}>Size: {item.size} • Qty: {item.quantity}</p>
+                  <p style={{ margin: '5px 0 0 0', fontWeight: '500' }}>₹{item.price}</p>
+                </div>
               </div>
+              {order.status?.toLowerCase() === 'delivered' && (
+                <button 
+                  onClick={() => {
+                    setSelectedItem(item);
+                    setIsReviewModalOpen(true);
+                  }}
+                  className="rate-item-btn"
+                >
+                  <Star size={14} /> Rate & Review
+                </button>
+              )}
             </div>
           ))}
         </div>
@@ -69,6 +90,17 @@ const OrderDetail = () => {
           <p>Standard Delivery (3-5 Business Days)</p>
         </div>
       </div>
+
+      {selectedItem && (
+        <AddReviewModal 
+          isOpen={isReviewModalOpen}
+          onClose={() => setIsReviewModalOpen(false)}
+          productHandle={selectedItem.handle || selectedItem.title.toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/-+/g, '-').replace(/^-+|-+$/g, '')}
+          productTitle={selectedItem.title}
+          userSession={userSession}
+          isVerified={true}
+        />
+      )}
     </div>
   );
 };

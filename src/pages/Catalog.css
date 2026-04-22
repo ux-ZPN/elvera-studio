@@ -1,5 +1,5 @@
 .catalog-container {
-  padding-top: var(--nav-height); /* ensure it clears the fixed header if present */
+  padding-top: calc(var(--nav-height) + 2rem);
   min-height: 80vh;
   padding-bottom: 5rem;
 }

@@ -89,7 +89,16 @@ const Checkout = () => {
           .insert([{
              email: formData.email,
              total_amount: finalTotal,
-             status: 'processing'
+             status: 'processing',
+             items: cartItems.map(item => ({
+               id: item.id,
+               title: item.title,
+               size: item.size,
+               price: item.price,
+               handle: item.handle,
+               image: item.image,
+               quantity: item.quantity
+             }))
           }]);
           
         if (error) {
@@ -199,7 +208,14 @@ const Checkout = () => {
 
           <div className="discount-block">
             <form onSubmit={handleApplyCoupon} className="discount-form">
-              <input type="text" placeholder="Discount code" value={coupon} onChange={(e) => setCoupon(e.target.value)} />
+               <input 
+                 type="text" 
+                 id="discount-coupon"
+                 name="coupon"
+                 placeholder="Discount code" 
+                 value={coupon} 
+                 onChange={(e) => setCoupon(e.target.value)} 
+               />
               <button type="submit" disabled={!coupon}>Apply</button>
             </form>
           </div>

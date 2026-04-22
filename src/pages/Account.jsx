@@ -83,9 +83,16 @@ const Account = () => {
                       </span>
                     </td>
                     <td>
-                      <Link to={`/account/order/${order.id}`} className="view-order-link">
-                        View Details
-                      </Link>
+                      <div className="order-actions">
+                        <Link to={`/account/order/${order.id}`} className="view-order-link">
+                          View Details
+                        </Link>
+                        {order.status.toLowerCase() === 'delivered' && (
+                          <Link to={`/account/order/${order.id}?review=true`} className="rate-order-link">
+                            Rate Items
+                          </Link>
+                        )}
+                      </div>
                     </td>
                   </tr>
                 ))}
